@@ -1,0 +1,52 @@
+# 证据库 · 命题 09：睡眠与学业表现
+
+> 检索源：OpenAlex API｜检索日期：2026-10-16
+
+<!-- query: sleep duration academic performance adolescents school start time | returned: 50 | kept: 46 -->
+
+1. **Seonkyeong Rhie, Kyu Young Chae (2018).** Effects of school time on sleep duration and sleepiness in adolescents. *PLoS ONE*. DOI:10.1371/journal.pone.0203318 | cited 19
+2. **Anne G. Wheaton, Daniel P. Chapman, Janet B. Croft (2016).** School Start Times, Sleep, Behavioral, Health, and Academic Outcomes: A Review of the Literature. *Journal of School Health*. DOI:10.1111/josh.12388 | cited 307
+3. **Xiaoning Zhang, Dagmara Dimitriou, Elizabeth J. Halstead (2021).** Sleep, Anxiety, and Academic Performance: A Study of Adolescents From Public High Schools in China. *Frontiers in Psychology*. DOI:10.3389/fpsyg.2021.678839 | cited 42
+4. **Valentina Alfonsi, Serena Scarpelli, Aurora D’Atri, et al. (2020).** Later School Start Time: The Impact of Sleep on Academic Performance and Health in the Adolescent Population. *International Journal of Environmental Research and Public Health*. DOI:10.3390/ijerph17072574 | cited 123
+5. **Valentina Alfonsi, Rossella Palmizio, Annalisa Rubino, et al. (2020).** The Association Between School Start Time and Sleep Duration, Sustained Attention, and Academic Performance. *Nature and Science of Sleep*. DOI:10.2147/nss.s273875 | cited 59
+6. **Judith Anne Owens, Miriam Weiss (2017).** Insufficient sleep in adolescents: causes and consequences. *Minerva Pediatrics*. DOI:10.23736/s0026-4946.17.04914-3 | cited 308
+7. **Rachel Widome, Aaron T. Berger, Conrad Iber, et al. (2020).** Association of Delaying School Start Time With Sleep Duration, Timing, and Quality Among Adolescents. *Archives of Pediatrics and Adolescent Medicine*. DOI:10.1001/jamapediatrics.2020.0344 | cited 95
+8. **Heather Noland, James H. Price, Joseph A. Dake, et al. (2009).** Adolescents’ Sleep Behaviors and Perceptions of Sleep. *Journal of School Health*. DOI:10.1111/j.1746-1561.2009.00402.x | cited 183
+9. **Lisa J. Meltzer, Keisha Shaheed, Devon Ambler (2014).** Start Later, Sleep Later: School Start Times and Adolescent Sleep in Homeschool Versus Public/Private School Students. *Behavioral Sleep Medicine*. DOI:10.1080/15402002.2014.963584 | cited 44
+10. **Anne G. Wheaton, Sherry Everett Jones, Adina C. Cooper, et al. (2018).** Short Sleep Duration Among Middle School and High School Students — United States, 2015. *MMWR Morbidity and Mortality Weekly Report*. DOI:10.15585/mmwr.mm6703a1 | cited 385
+11. **Olga E. Titova, Pleunie S. Hogenkamp, Josefin A. Jacobsson, et al. (2014).** Associations of self-reported sleep disturbance and duration with academic failure in community-dwelling Swedish adolescents: Sleep and academic performance at school. *Sleep Medicine*. DOI:10.1016/j.sleep.2014.09.004 | cited 59
+12. **Kurt Wang, Joseph J. Sabia, Resul Cesur (2016).** Sleepwalking Through School: New Evidence on Sleep and Academic Performance. *SSRN Electronic Journal*. DOI:10.2139/ssrn.2757919 | cited 4
+13. **June Chi-Yan Lo, Su Mei Lee, Xuan Kai Lee, et al. (2018).** Sustained benefits of delaying school start time on adolescent sleep and well-being. *SLEEP*. DOI:10.1093/sleep/zsy052 | cited 113
+14. **Zhongyuan Bao (2023).** The Impacts of Delaying School Start Time on Sleep and Academic Performance in the Adolescent Population. *Lecture Notes in Education Psychology and Public Media*. DOI:10.54254/2753-7048/6/20220362 | cited 0
+15. **Yazdi, Zohreh (2020).** Sleep duration and its relationship with school performance in Iranian adolescents. *Journal of preventive medicine and hygiene*. DOI:10.15167/2421-4248/jpmh2021.62.1.1618 | cited 8
+16. **Jinjida Wongsurakiat (2025).** The Correlation Between Sleep and Academic Performance: A Literature Review. *American journal of student research.*. DOI:10.70251/hyjr2348.35541548 | cited 0
+17. **Anna Sofia Urrila, Eric Artiges A, Jessica Massicotte, et al. (2017).** Sleep habits, academic performance, and the adolescent brain structure. *Scientific Reports*. DOI:10.1038/srep41678 | cited 115
+18. **Maohua Wang, Zhuo Chen, Ni Han, et al. (2025).** Sleep duration and subject-specific academic performance among adolescents in China. *npj Science of Learning*. DOI:10.1038/s41539-025-00361-y | cited 8
+19. **Lauren D. Asarnow, Eleanor L. McGlinchey, Allison G. Harvey (2013).** The Effects of Bedtime and Sleep Duration on Academic and Emotional Outcomes in a Nationally Representative Sample of Adolescents. *Journal of Adolescent Health*. DOI:10.1016/j.jadohealth.2013.09.004 | cited 160
+20. **Carmen Peiró Velert, Alexandra Valencia‐Peris, Luís-Millán González, et al. (2014).** Screen Media Usage, Sleep Time and Academic Performance in Adolescents: Clustering a Self-Organizing Maps Analysis. *PLoS ONE*. DOI:10.1371/journal.pone.0099478 | cited 99
+21. **Joëlle Ninon Albrecht, Alessa Risch, Reto Huber, et al. (2026).** The Power of Flexible School Start Times: Longitudinal Associations with Sleep, Health, and Academic Performance. *Zurich Open Repository and Archive (University of Zurich)*. DOI:10.5167/uzh-434556 | cited 0
+22. **June Chi-Yan Lo, Ju Lynn Ong, Ruth L F Leong, et al. (2016).** Cognitive Performance, Sleepiness, and Mood in Partially Sleep Deprived Adolescents: The Need for Sleep Study. *SLEEP*. DOI:10.5665/sleep.5552 | cited 445
+23. **Dagmara Dimitriou, Frances Le Cornu Knight, Patrick Milton (2015).** The Role of Environmental Factors on Sleep Patterns and School Performance in Adolescents. *Frontiers in Psychology*. DOI:10.3389/fpsyg.2015.01717 | cited 70
+24. **Joseph J. Sabia, Kurt Wang, Resul Cesur (2016).** SLEEPWALKING THROUGH SCHOOL: NEW EVIDENCE ON SLEEP AND ACADEMIC ACHIEVEMENT. *Contemporary Economic Policy*. DOI:10.1111/coep.12193 | cited 13
+25. **Kana Okano, Jakub Kaczmarzyk, Neha Dave, et al. (2019).** Sleep quality, duration, and consistency are associated with better academic performance in college students. *npj Science of Learning*. DOI:10.1038/s41539-019-0055-z | cited 333
+26. **Shenghui Li, Lester Arguelles, Fan Jiang, et al. (2013).** Sleep, School Performance, and a School-Based Intervention among School-Aged Children: A Sleep Series Study in China. *PLoS ONE*. DOI:10.1371/journal.pone.0067928 | cited 118
+27. **Nicole G. Nahmod, Soomi Lee, Lindsay Master, et al. (2018).** Later high school start times associated with longer actigraphic sleep duration in adolescents. *SLEEP*. DOI:10.1093/sleep/zsy212 | cited 81
+28. **Ka‐Fai Chung, Man‐Sum Chan, Ying‐Yin Lam, et al. (2017).** School‐Based Sleep Education Programs for Short Sleep Duration in Adolescents: A Systematic Review and Meta‐Analysis. *Journal of School Health*. DOI:10.1111/josh.12509 | cited 83
+29. **Ruchi Singh, Moutrisha M. Roy, Sunil Chouhan, et al. (2023).** Impact of school start time and sleep pattern of adolescents on their mood and sleep quality. *Journal of Family Medicine and Primary Care*. DOI:10.4103/jfmpc.jfmpc_803_23 | cited 10
+30. **Connor Nitchals (2026).** Screen Time, Sleep Duration, and Perceived Impact as Predictors of Academic Performance: A Multivariate Regression Analysis (Preprint). **. DOI:10.2196/preprints.107275 | cited 0
+31. **João Duarte, Paula Alexandra de Andrade Batista Nelas, Cláudia Chaves, et al. (2014).** Sleep-wake patterns and their influence on school performance in Portuguese adolescents. *Atención Primaria*. DOI:10.1016/s0212-6567(14)70085-x | cited 52
+32. **Yu Jin Lee, Juhyun Park, Soohyun Kim, et al. (2015).** Academic Performance among Adolescents with Behaviorally Induced Insufficient Sleep Syndrome. *Journal of Clinical Sleep Medicine*. DOI:10.5664/jcsm.4368 | cited 64
+33. **Ting Chen, WU Zeng-qiang, Zhifei Shen, et al. (2014).** Sleep duration in Chinese adolescents: biological, environmental, and behavioral predictors. *Sleep Medicine*. DOI:10.1016/j.sleep.2014.05.018 | cited 143
+34. **Hayeon Kim, Ji Hye Oh, Sung‐Min Kim, et al. (2019).** Effect of Delaying School Start Time on Sleep Quality, Emotions, and Performance in Korean Adolescents. *Sleep Medicine Research*. DOI:10.17241/smr.2019.00353 | cited 4
+35. **Chiara Emilia Gaia Fontanellaz-Castiglione, Samira Schaufler, Salome Wild, et al. (2023).** Sleep regularity in healthy adolescents: Associations with sleep duration, sleep quality, and mental health. *Journal of Sleep Research*. DOI:10.1111/jsr.13865 | cited 72
+36. **Lanyi Lin, Gail Somerville, Johanne Boursier, et al. (2020).** Sleep Duration Is Associated with Academic Achievement of Adolescent Girls in Mathematics. *Nature and Science of Sleep*. DOI:10.2147/nss.s237267 | cited 18
+37. **Ka‐Fai Chung, Miao-miao Cheung (2008).** Sleep-Wake Patterns and Sleep Disturbance among Hong Kong Chinese Adolescents. *SLEEP*. DOI:10.1093/sleep/31.2.185 | cited 309
+38. **Rachel Weingart, Cassandra S. Bryan, Devon Olson, et al. (2021).** Adolescent sleep duration and timing during early COVID-19 school closures. *Sleep Health*. DOI:10.1016/j.sleh.2021.07.003 | cited 32
+39. **Gbenusola Akinwale, Victor Ojakorotu, Melvin Diedericks (2026).** Adolescent Sleep Deprivation and Academic Outcomes: A Systematic Review. *International Journal of Applied Research in Business and Management*. DOI:10.51137/wrp.ijarbm.1056 | cited 0
+40. **Camila de Castro Corrêa, Gabryella Nery Teles Nogueira Silva, Giovanna Régis Viana, et al. (2024).** Sleep Hygiene Intervention Improves Sleep Time and Duration in High School Students. *Sleep Science*. DOI:10.1055/s-0044-1782169 | cited 4
+41. **Radhika Bapat, Mitch van Geel, Paul H. Vedder (2016).** Socio-Economic Status, Time Spending, and Sleep Duration in Indian Children and Adolescents. *Journal of Child and Family Studies*. DOI:10.1007/s10826-016-0557-8 | cited 31
+42. **Zachary S. Farley, Mandilyn Ward, Nicole R. Giuliani, et al. (2024).** Physical activity moderates the association between school start time and sleep duration in a cross-sectional national sample of adolescents. *Journal of Activity Sedentary and Sleep Behaviors*. DOI:10.1186/s44167-024-00050-y | cited 0
+43. **Margaret Dunbar, Sheena Mirpuri, Tiffany Yip (2017).** Ethnic/racial discrimination moderates the effect of sleep quality on school engagement across high school.. *Cultural Diversity & Ethnic Minority Psychology*. DOI:10.1037/cdp0000146 | cited 30
+44. **Stephen A. Booth, Mary A. Carskadon, Robyn Louise Young, et al. (2020).** Sleep duration and mood in adolescents: an experimental study. *SLEEP*. DOI:10.1093/sleep/zsaa253 | cited 41
+
+<!-- total: 46 -->
