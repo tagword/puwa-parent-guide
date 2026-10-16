@@ -34,7 +34,9 @@
 - [x] 校验：所有来源链接可访问、格式统一（51 DOI 全通过）
 - [x] 生成 index.html 检索页（单文件、零依赖、搜索+筛选）
 - [x] 准备发布（docs/PUBLISH.md + .nojekyll + .gitignore）
-- [ ] 推送 GitHub + 开启 Pages（需用户授权）
+- [x] 推送 GitHub（tagword/puwa-parent-guide，main，14 提交）
+- [x] 开启 Pages（Deploy from branch: main / root）
+- [x] 线上验证：https://tagword.github.io/puwa-parent-guide/ 全部 200，9 章 md 可达，70 条解析零缺失，搜索/筛选正常
 
 ## 验收
 
