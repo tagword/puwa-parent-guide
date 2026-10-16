@@ -23,6 +23,9 @@
   h1{font-size:24px; margin:0 0 6px; letter-spacing:.5px}
   .sub{color:var(--muted); font-size:14px; margin:0}
   .sub a{color:var(--accent)}
+  .chlinks{margin:10px 0 0; display:flex; flex-wrap:wrap; gap:6px 14px; font-size:13px}
+  .chlinks a{color:var(--muted); text-decoration:none; border-bottom:1px solid transparent}
+  .chlinks a:hover{color:var(--accent); border-bottom-color:var(--accent)}
 
   .controls{
     position:sticky; top:0; z-index:10; background:var(--bg);
@@ -97,7 +100,8 @@
 <header>
   <h1>普娃家长指南 · 检索</h1>
   <p class="sub">循证教育决策指南 · 共 <span id="total">…</span> 条 · 每条都能指回来源 ·
-    <a href="README.md">README</a> · <a href="book/">正文</a></p>
+    <a href="README.md">README</a> · <a href="book/index.md">正文目录</a></p>
+  <p class="chlinks" id="chlinks"></p>
 </header>
 
 <div class="controls">
@@ -119,7 +123,7 @@
 
 <footer>
   <p>内容许可 <a href="LICENSE">CC BY 4.0</a> ｜ 代码许可 <a href="LICENSE-CODE">MIT</a>。
-  本页无第三方依赖、无追踪。若 JavaScript 不可用，请直接阅读 <a href="README.md">README.md</a> 与 <a href="book/">book/</a>。</p>
+  本页无第三方依赖、无追踪。若 JavaScript 不可用，请直接阅读 <a href="README.md">README.md</a> 与 <a href="book/index.md">正文目录</a>。</p>
 </footer>
 
 <script>
@@ -382,6 +386,25 @@
     refreshFilters();
   });
 
+  /* ---------- 章节正文跳转 ---------- */
+  function buildChapterLinks(){
+    var box = document.getElementById("chlinks");
+    if (!box) return;
+    var lead = document.createElement("span");
+    lead.textContent = "读正文：";
+    lead.style.color = "var(--muted)";
+    box.appendChild(lead);
+    FILES.forEach(function(f){
+      var no = f.slice(0,2).replace(/^0/,"");
+      var title = f.slice(3).replace(/\.md$/,"");
+      var a = document.createElement("a");
+      a.href = BASE + encodeURIComponent(f);
+      a.textContent = no + ". " + title;
+      box.appendChild(a);
+    });
+  }
+
+  buildChapterLinks();
   load();
 })();
 </script>
