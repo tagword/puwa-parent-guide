@@ -113,10 +113,20 @@ python3 -m http.server 8088
 
 ## 许可
 
-本项目内容采用 [CC BY-NC-SA 4.0](LICENSE) 许可：可自由阅读、转发、非商用分享，请勿二次打包售卖。
+本项目内容采用 [CC BY 4.0](LICENSE) 许可：署名即可自由阅读、转发、改编（含商用）。
+代码（含 `index.html`）采用 [MIT](LICENSE-CODE) 许可。
 
 ---
 
 ## 配套 AI Skill
 
 仓库里带了一个中文 skill（`skills/puwa-parent-guide`），Claude Code 和 Codex 都能装。装上以后直接问「孩子成绩中游要不要报班」「每天写两小时作业值不值」，它会先把相关条目从正文里查出来，再照书里的算账方式排序回答，并注明出自第几节第几条。查不到就说查不到，不自己编数字。
+
+---
+
+## 在线检索页
+
+仓库带一个单文件检索页 `index.html`（零依赖、无追踪），支持关键词搜索和按章节 / 证据等级 / 成本筛选。
+
+发布到 GitHub Pages 后可直接访问；本地预览见上文「怎么读 → 在线检索」。
+发布步骤见 [`docs/PUBLISH.md`](docs/PUBLISH.md)。

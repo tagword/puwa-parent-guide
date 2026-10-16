@@ -32,8 +32,9 @@
 - [x] skills/puwa-parent-guide/SKILL.md
 - [x] LICENSE
 - [x] 校验：所有来源链接可访问、格式统一（51 DOI 全通过）
-- [ ] 生成 index.html 检索页（可选，未做）
-- [ ] 准备发布（README 里的发布说明）（README 里的发布说明）
+- [x] 生成 index.html 检索页（单文件、零依赖、搜索+筛选）
+- [x] 准备发布（docs/PUBLISH.md + .nojekyll + .gitignore）
+- [ ] 推送 GitHub + 开启 Pages（需用户授权）
 
 ## 验收
 

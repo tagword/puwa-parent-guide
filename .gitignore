@@ -1,0 +1,12 @@
+# 临时与系统文件
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+__pycache__/
+*.pyc
+
+# 本地预览
+.venv/
+node_modules/
