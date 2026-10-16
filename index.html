@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>普娃家长指南 · 检索</title>
+<style>
+  :root{
+    --bg:#faf9f7; --fg:#1f2328; --muted:#6b7280; --line:#e5e1da;
+    --card:#ffffff; --accent:#2f6f4e; --accent-soft:#eaf3ee;
+    --warn:#b45309; --warn-soft:#fef3e2;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--fg);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    padding:28px 20px 16px; max-width:900px; margin:0 auto;
+  }
+  h1{font-size:24px; margin:0 0 6px; letter-spacing:.5px}
+  .sub{color:var(--muted); font-size:14px; margin:0}
+  .sub a{color:var(--accent)}
+
+  .controls{
+    position:sticky; top:0; z-index:10; background:var(--bg);
+    padding:12px 20px 14px; max-width:900px; margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  .search-row{display:flex; gap:8px}
+  #q{
+    flex:1; padding:11px 14px; font-size:16px; border:1px solid var(--line);
+    border-radius:10px; background:var(--card); color:var(--fg); outline:none;
+  }
+  #q:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+  #clear{
+    padding:0 14px; border:1px solid var(--line); background:var(--card);
+    border-radius:10px; cursor:pointer; color:var(--muted); font-size:14px;
+  }
+  #clear:hover{color:var(--fg)}
+
+  .filters{display:flex; flex-wrap:wrap; gap:16px; margin-top:12px}
+  .fgroup{display:flex; align-items:center; gap:6px; flex-wrap:wrap}
+  .fgroup .label{font-size:13px; color:var(--muted); margin-right:2px}
+  .chip{
+    font-size:13px; padding:4px 10px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--line); background:var(--card); color:var(--muted);
+    user-select:none; transition:.12s;
+  }
+  .chip:hover{border-color:#c9c4bb}
+  .chip.on{background:var(--accent); border-color:var(--accent); color:#fff}
+
+  main{max-width:900px; margin:0 auto; padding:18px 20px 80px}
+  #status{color:var(--muted); font-size:14px; padding:8px 0 14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; margin-bottom:14px;
+  }
+  .card h3{margin:0 0 4px; font-size:17px; line-height:1.45}
+  .card h3 .num{color:var(--accent); font-weight:600; margin-right:6px}
+  .meta{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 10px}
+  .tag{font-size:12px; padding:2px 8px; border-radius:6px; background:#f1efe9; color:var(--muted)}
+  .tag.lvA{background:var(--accent-soft); color:var(--accent)}
+  .tag.lvB{background:var(--warn-soft); color:var(--warn)}
+  .tag.lvC{background:#f3e8f5; color:#7e3f8f}
+  .field{margin:6px 0; font-size:15px}
+  .field .k{color:var(--accent); font-weight:600; margin-right:4px}
+  .src{font-size:13px; color:var(--muted); word-break:break-word}
+  .src a{color:var(--accent); text-decoration:none}
+  .src a:hover{text-decoration:underline}
+  mark{background:#ffe9a8; padding:0 2px; border-radius:3px}
+
+  .empty, .error{
+    text-align:center; padding:50px 20px; color:var(--muted);
+  }
+  .error{color:var(--warn)}
+  .empty .big, .error .big{font-size:34px; display:block; margin-bottom:10px}
+
+  footer{max-width:900px; margin:0 auto; padding:0 20px 40px; color:var(--muted); font-size:13px}
+  footer a{color:var(--accent)}
+
+  @media (max-width:560px){
+    header{padding:20px 16px 12px}
+    h1{font-size:20px}
+    .controls{padding:10px 16px 12px}
+    main{padding:14px 16px 60px}
+    .filters{gap:10px}
+    .card{padding:14px}
+    .card h3{font-size:16px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>普娃家长指南 · 检索</h1>
+  <p class="sub">循证教育决策指南 · 共 <span id="total">…</span> 条 · 每条都能指回来源 ·
+    <a href="README.md">README</a> · <a href="book/">正文</a></p>
+</header>
+
+<div class="controls">
+  <div class="search-row">
+    <input id="q" type="search" placeholder="搜索关键词：补习、睡眠、学区房、期望…" autocomplete="off">
+    <button id="clear" type="button">清除</button>
+  </div>
+  <div class="filters">
+    <div class="fgroup" id="f-chapter"><span class="label">章节</span></div>
+    <div class="fgroup" id="f-level"><span class="label">证据</span></div>
+    <div class="fgroup" id="f-cost"><span class="label">成本</span></div>
+  </div>
+</div>
+
+<main>
+  <div id="status"></div>
+  <div id="list"></div>
+</main>
+
+<footer>
+  <p>内容许可 <a href="LICENSE">CC BY 4.0</a> ｜ 代码许可 <a href="LICENSE-CODE">MIT</a>。
+  本页无第三方依赖、无追踪。若 JavaScript 不可用，请直接阅读 <a href="README.md">README.md</a> 与 <a href="book/">book/</a>。</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var FILES = [
+    "01-先认清普娃这件事.md","02-作业到底该写多久.md","03-补习班值不值得报.md",
+    "04-择校和学区房这笔账.md","05-家长的期望和参与.md","06-要不要鸡娃.md",
+    "07-孩子的心理和亲子关系.md","08-钱该花在哪.md","09-普娃的出路.md"
+  ];
+  var BASE = "book/";
+
+  var state = { items:[], q:"", chapter:null, level:null, cost:null };
+
+  /* ---------- 解析 ---------- */
+
+  function parseChapter(md, file){
+    var lines = md.split(/\r?\n/);
+    var chapterTitle = "", chapterNo = "";
+    var m = lines[0] && lines[0].match(/^#\s*(\d+)\.\s*(.+)$/);
+    if (m){ chapterNo = m[1]; chapterTitle = m[2].trim(); }
+
+    // 按 "### N. 标题" 切块
+    var blocks = md.split(/\n(?=###\s*\d+\.\s)/);
+    var out = [];
+    blocks.forEach(function(b){
+      var h = b.match(/^###\s*(\d+)\.\s*(.+)$/m);
+      if (!h) return;
+      var item = {
+        no: h[1],
+        title: h[2].trim(),
+        chapterNo: chapterNo,
+        chapterTitle: chapterTitle,
+        file: file,
+        anchor: "### " + h[1] + ".",
+        cost:"", plain:"", gain:"", level:"", source:"", note:""
+      };
+      item.cost   = field(b, "成本");
+      item.plain  = field(b, "说人话");
+      item.gain   = field(b, "收益");
+      item.level  = (field(b, "证据等级").match(/[ABC]/) || [""])[0];
+      item.source = field(b, "来源");
+      item.note   = field(b, "备注");
+      out.push(item);
+    });
+    return out;
+  }
+
+  // 取 "- **字段**：内容" 直到下一个 "- **" 或块尾
+  function field(block, name){
+    var re = new RegExp("-\\s*\\*\\*" + name + "\\*\\*：([\\s\\S]*?)(?=\\n-\\s*\\*\\*|\\n\\s*$|\\n---)", "");
+    var m = block.match(re);
+    return m ? m[1].trim() : "";
+  }
+
+  /* ---------- 渲染工具 ---------- */
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+
+  // 极简 Markdown：**粗体**、[文字](链接)、裸链接、`代码`
+  function mdInline(s, hl){
+    s = esc(s);
+    s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function(_,t,u){
+      return '<a href="' + u + '" target="_blank" rel="noopener">' + t + "</a>";
+    });
+    s = s.replace(/(^|[\s(（])((?:https?:\/\/)[^\s)）<]+)/g, function(_,p,u){
+      return p + '<a href="' + u + '" target="_blank" rel="noopener">' + u + "</a>";
+    });
+    if (hl){
+      var re = new RegExp("(" + hl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+      s = s.replace(re, "<mark>$1</mark>");
+    }
+    return s;
+  }
+
+  function costTags(cost){
+    if (!cost) return "";
+    var c = cost.trim();
+    if (/^0$/.test(c)) return '<span class="tag">不花钱</span>';
+    return c.split("｜").map(function(p){
+      return '<span class="tag">' + esc(p.trim()) + "</span>";
+    }).join("");
+  }
+
+  function costKey(cost){
+    // 归一化成本主键：钱 / 时间 / 免费
+    if (!cost) return "其他";
+    if (/钱\s*=\s*0/.test(cost) && /时间\s*=\s*(少|中|多|很多)/.test(cost)) return "钱=0";
+    if (/钱\s*=\s*0/.test(cost)) return "钱=0";
+    if (/时间\s*=\s*0/.test(cost)) return "时间=0";
+    if (/^0$/.test(cost.trim())) return "免费";
+    if (/钱/.test(cost)) return "要花钱";
+    if (/时间/.test(cost)) return "花时间";
+    return "其他";
+  }
+
+  function render(){
+    var list = document.getElementById("list");
+    var status = document.getElementById("status");
+    var q = state.q.trim().toLowerCase();
+
+    var shown = state.items.filter(function(it){
+      if (state.chapter && it.chapterNo !== state.chapter) return false;
+      if (state.level && it.level !== state.level) return false;
+      if (state.cost && costKey(it.cost) !== state.cost) return false;
+      if (q){
+        var hay = (it.title + " " + it.plain + " " + it.gain + " " + it.note + " " + it.source).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+
+    status.textContent = "显示 " + shown.length + " / " + state.items.length + " 条";
+
+    if (!shown.length){
+      list.innerHTML = '<div class="empty"><span class="big">🔍</span>没有匹配的条目。<br>试试换个关键词，或点「清除」重置筛选。</div>';
+      return;
+    }
+
+    var html = shown.map(function(it){
+      var lv = it.level ? ' lv' + it.level : "";
+      return '<article class="card">'
+        + '<h3><span class="num">' + esc(it.chapterNo) + "." + esc(it.no) + "</span>" + mdInline(it.title, state.q) + "</h3>"
+        + '<div class="meta">'
+        +   (it.level ? '<span class="tag' + lv + '">证据 ' + esc(it.level) + "</span>" : "")
+        +   costTags(it.cost)
+        +   '<span class="tag">第 ' + esc(it.chapterNo) + " 章</span>"
+        + "</div>"
+        + (it.plain ? '<div class="field"><span class="k">说人话</span>' + mdInline(it.plain, state.q) + "</div>" : "")
+        + (it.gain  ? '<div class="field"><span class="k">收益</span>' + mdInline(it.gain, state.q) + "</div>" : "")
+        + (it.note  ? '<div class="field"><span class="k">备注</span>' + mdInline(it.note, state.q) + "</div>" : "")
+        + (it.source? '<div class="src"><span class="k">来源</span> ' + mdInline(it.source, state.q) + "</div>" : "")
+        + "</article>";
+    }).join("");
+    list.innerHTML = html;
+  }
+
+  /* ---------- 筛选控件 ---------- */
+
+  function chip(text, on, handler){
+    var b = document.createElement("span");
+    b.className = "chip" + (on ? " on" : "");
+    b.textContent = text;
+    b.addEventListener("click", handler);
+    return b;
+  }
+
+  function buildFilters(){
+    var chapters = {};
+    state.items.forEach(function(it){ chapters[it.chapterNo] = it.chapterTitle; });
+    var chBox = document.getElementById("f-chapter");
+    chBox.appendChild(chip("全部", true, function(){ state.chapter=null; refreshFilters(); }));
+    Object.keys(chapters).sort().forEach(function(no){
+      chBox.appendChild(chip(no + ". " + chapters[no], false, function(){
+        state.chapter = (state.chapter === no ? null : no); refreshFilters();
+      }));
+    });
+
+    var lvBox = document.getElementById("f-level");
+    lvBox.appendChild(chip("全部", true, function(){ state.level=null; refreshFilters(); }));
+    ["A","B","C"].forEach(function(lv){
+      lvBox.appendChild(chip(lv, false, function(){
+        state.level = (state.level === lv ? null : lv); refreshFilters();
+      }));
+    });
+
+    var costBox = document.getElementById("f-cost");
+    costBox.appendChild(chip("全部", true, function(){ state.cost=null; refreshFilters(); }));
+    ["钱=0","要花钱","花时间","免费"].forEach(function(c){
+      costBox.appendChild(chip(c, false, function(){
+        state.cost = (state.cost === c ? null : c); refreshFilters();
+      }));
+    });
+  }
+
+  function refreshFilters(){
+    markGroup("f-chapter", state.chapter === null ? "全部" : state.chapter + ".");
+    markGroup("f-level", state.level === null ? "全部" : state.level);
+    markGroup("f-cost", state.cost === null ? "全部" : state.cost);
+    render();
+  }
+
+  function markGroup(id, activeText){
+    var g = document.getElementById(id);
+    var chips = g.querySelectorAll(".chip");
+    var matched = false;
+    chips.forEach(function(c){
+      var on = c.textContent === activeText;
+      c.classList.toggle("on", on);
+      if (on) matched = true;
+    });
+    // 章节 chip 文本带标题，做前缀匹配兜底
+    if (!matched){
+      chips.forEach(function(c){
+        var on = c.textContent.indexOf(activeText) === 0;
+        c.classList.toggle("on", on);
+      });
+    }
+  }
+
+  /* ---------- 加载 ---------- */
+
+  function load(){
+    var status = document.getElementById("status");
+    status.textContent = "正在加载正文…";
+    var pending = FILES.length;
+    var collected = [];
+    var failed = [];
+
+    FILES.forEach(function(f){
+      fetch(BASE + encodeURIComponent(f))
+        .then(function(r){
+          if (!r.ok) throw new Error(f + " HTTP " + r.status);
+          return r.text();
+        })
+        .then(function(md){
+          collected = collected.concat(parseChapter(md, f));
+        })
+        .catch(function(e){ failed.push(f); })
+        .then(function(){
+          if (--pending === 0) done();
+        });
+    });
+
+    function done(){
+      if (!collected.length){
+        status.innerHTML = "";
+        document.getElementById("list").innerHTML =
+          '<div class="error"><span class="big">⚠️</span>正文加载失败。'
+          + '<br>请通过本地服务器打开本页（<code>python3 -m http.server</code>），'
+          + '直接双击 <code>file://</code> 会被浏览器安全策略拦截。'
+          + '<br>也可以直接阅读 <a href="README.md">README.md</a>。</div>';
+        return;
+      }
+      collected.sort(function(a,b){
+        return (+a.chapterNo - +b.chapterNo) || (+a.no - +b.no);
+      });
+      state.items = collected;
+      document.getElementById("total").textContent = collected.length;
+      buildFilters();
+      var note = failed.length ? "（" + failed.length + " 个文件加载失败）" : "";
+      status.textContent = "共 " + collected.length + " 条" + note;
+      render();
+    }
+  }
+
+  document.getElementById("q").addEventListener("input", function(e){
+    state.q = e.target.value; render();
+  });
+  document.getElementById("clear").addEventListener("click", function(){
+    state.q = ""; state.chapter = state.level = state.cost = null;
+    document.getElementById("q").value = "";
+    refreshFilters();
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
